@@ -7,11 +7,11 @@
 +    filterPatches = false
      gitFilePatches = false
  
-+    val fork = forks.register("folia") {
++    val fork = forks.register("isoluminol") {  //isoluminol
 +        upstream.patchDir("paperServer") {
 +            upstreamPath = "paper-server"
 +            excludes = setOf("src/minecraft", "patches", "build.gradle.kts")
-+            patchesDir = rootDirectory.dir("folia-server/paper-patches")
++            patchesDir = rootDirectory.dir("isoluminol-server/paper-patches")  //isoluminol
 +            outputDir = rootDirectory.dir("paper-server")
 +        }
 +    }
@@ -48,7 +48,7 @@
  
  dependencies {
 -    implementation(project(":paper-api"))
-+    implementation(project(":folia-api"))
++    implementation(project(":isoluminol-api"))  //isoluminol
      implementation("ca.spottedleaf:leafpile:1.0.0")
      implementation("org.jline:jline-terminal-ffm:3.27.1") // use ffm on java 22+
      implementation("org.jline:jline-terminal-jni:3.27.1") // fall back to jni on java 21
@@ -57,17 +57,17 @@
          attributes(
              "Main-Class" to "org.bukkit.craftbukkit.Main",
 -            "Implementation-Title" to "Paper",
-+            "Implementation-Title" to "Folia",
++            "Implementation-Title" to "Isoluminol",  //isoluminol
              "Implementation-Version" to implementationVersion,
              "Implementation-Vendor" to date,
 -            "Specification-Title" to "Paper",
-+            "Specification-Title" to "Folia",
++            "Specification-Title" to "Isoluminol",  //isoluminol
              "Specification-Version" to project.version,
              "Specification-Vendor" to "Paper Team",
 -            "Brand-Id" to "papermc:paper",
 -            "Brand-Name" to "Paper",
-+            "Brand-Id" to "papermc:folia",
-+            "Brand-Name" to "Folia",
++            "Brand-Id" to "isoluminolmc:isoluminol",  //isoluminol
++            "Brand-Name" to "Isoluminol",  //isoluminol
              "Build-Number" to (build ?: ""),
              "Build-Time" to buildTime.toString(),
              "Git-Branch" to gitBranch,
@@ -76,7 +76,7 @@
  
  fill {
 -    project("paper")
-+    project("folia")
++    project("isoluminol")  //isoluminol
      versionFamily(paperweight.minecraftVersion.map { it.split(".", "-").takeWhile { part -> part.toIntOrNull() != null }.take(2).joinToString(".") })
      version(paperweight.minecraftVersion)
  

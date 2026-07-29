@@ -5,7 +5,7 @@ Subject: [PATCH] Build changes
 
 
 diff --git a/src/main/java/com/destroystokyo/paper/Metrics.java b/src/main/java/com/destroystokyo/paper/Metrics.java
-index 9f4d73fd321f6f0cd19fdd1b63068d2ea6c0816b..08745a35b1ce8cc56d970472088de3cd17b9e43a 100644
+index 9f4d73fd321f6f0cd19fdd1b63068d2ea6c0816b..3a222ee36e02c09f36daf76d62a7e9d466839b26 100644
 --- a/src/main/java/com/destroystokyo/paper/Metrics.java
 +++ b/src/main/java/com/destroystokyo/paper/Metrics.java
 @@ -593,7 +593,7 @@ public class Metrics {
@@ -13,7 +13,7 @@ index 9f4d73fd321f6f0cd19fdd1b63068d2ea6c0816b..08745a35b1ce8cc56d970472088de3cd
              // Only start Metrics, if it's enabled in the config
              if (config.getBoolean("enabled", true)) {
 -                Metrics metrics = new Metrics("Paper", serverUUID, logFailedRequests, Bukkit.getLogger());
-+                Metrics metrics = new Metrics("Folia", serverUUID, logFailedRequests, Bukkit.getLogger()); // Folia - we have our own bstats page
++                Metrics metrics = new Metrics("Isoluminol", serverUUID, logFailedRequests, Bukkit.getLogger()); // Folia - we have our own bstats page  //Isoluminol
  
                  metrics.addCustomChart(new Metrics.SimplePie("minecraft_version", () -> {
                      String minecraftVersion = Bukkit.getVersion();
@@ -22,17 +22,17 @@ index 9f4d73fd321f6f0cd19fdd1b63068d2ea6c0816b..08745a35b1ce8cc56d970472088de3cd
                  if (implVersion != null) {
                      final String buildOrHash = implVersion.substring(implVersion.lastIndexOf('-') + 1);
 -                    paperVersion = "git-Paper-%s-%s".formatted(Bukkit.getServer().getMinecraftVersion(), buildOrHash);
-+                    paperVersion = "git-Folia-%s-%s".formatted(Bukkit.getServer().getMinecraftVersion(), buildOrHash); // Folia - we have our own bstats page
++                    paperVersion = "git-Isoluminol-%s-%s".formatted(Bukkit.getServer().getMinecraftVersion(), buildOrHash); // Folia - we have our own bstats page  //Isoluminol
                  } else {
                      paperVersion = "unknown";
                  }
 -                metrics.addCustomChart(new Metrics.SimplePie("paper_version", () -> paperVersion));
-+                metrics.addCustomChart(new Metrics.SimplePie("folia_version", () -> paperVersion)); // Folia - we have our own bstats page
++                metrics.addCustomChart(new Metrics.SimplePie("isoluminol_version", () -> paperVersion)); // Folia - we have our own bstats page  //Isoluminol
  
                  metrics.addCustomChart(new Metrics.DrilldownPie("java_version", () -> {
                      Map<String, Map<String, Integer>> map = new HashMap<>();
 diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-index ba32d58c33c65b1384baa7616da64f7a4a1f0d1d..30815c8970b1f1c88a3c7bb5fd36efd915f1687d 100644
+index ba32d58c33c65b1384baa7616da64f7a4a1f0d1d..7ba13fca919a80e7a5975bbc7558534c35588679 100644
 --- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
 +++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
 @@ -40,8 +40,8 @@ public class PaperVersionFetcher implements VersionFetcher {
@@ -41,8 +41,8 @@ index ba32d58c33c65b1384baa7616da64f7a4a1f0d1d..30815c8970b1f1c88a3c7bb5fd36efd9
      private static final int DISTANCE_UNKNOWN = -2;
 -    private static final String DOWNLOAD_PAGE = "https://papermc.io/downloads/paper";
 -    private static final String REPOSITORY = "PaperMC/Paper";
-+    private static final String DOWNLOAD_PAGE = "https://papermc.io/downloads/folia"; // Folia
-+    private static final String REPOSITORY = "PaperMC/Folia"; // Folia
++    private static final String DOWNLOAD_PAGE = "https://"; // Folia
++    private static final String REPOSITORY = "IsoluminolMC/Isoluminol"; // Folia  //Isoluminol
      private static final ServerBuildInfo BUILD_INFO = ServerBuildInfo.buildInfo();
      private static final String USER_AGENT = BUILD_INFO.brandName() + "/" + BUILD_INFO.asString(VERSION_SIMPLE) + " (https://papermc.io)";
      private static final Gson GSON = new Gson();
@@ -51,7 +51,7 @@ index ba32d58c33c65b1384baa7616da64f7a4a1f0d1d..30815c8970b1f1c88a3c7bb5fd36efd9
  
          try {
 -            final URL versionsUrl = URI.create("https://fill.papermc.io/v3/projects/paper").toURL();
-+            final URL versionsUrl = URI.create("https://fill.papermc.io/v3/projects/folia").toURL(); // Folia
++            final URL versionsUrl = URI.create("https://").toURL(); // Folia  //Isoluminol
              final HttpURLConnection connection = (HttpURLConnection) versionsUrl.openConnection();
              connection.setConnectTimeout(5000);
              connection.setReadTimeout(5000);
@@ -60,7 +60,7 @@ index ba32d58c33c65b1384baa7616da64f7a4a1f0d1d..30815c8970b1f1c88a3c7bb5fd36efd9
  
                      try {
 -                        final URL buildsUrl = URI.create("https://fill.papermc.io/v3/projects/paper/versions/" + latestVersion + "/builds/latest").toURL();
-+                        final URL buildsUrl = URI.create("https://fill.papermc.io/v3/projects/folia/versions/" + latestVersion + "/builds/latest").toURL(); // Folia
++                        final URL buildsUrl = URI.create("https://" + latestVersion + "/builds/latest").toURL(); // Folia  //Isoluminol
                          final HttpURLConnection connection2 = (HttpURLConnection) buildsUrl.openConnection();
                          connection2.setConnectTimeout(5000);
                          connection2.setReadTimeout(5000);
@@ -69,12 +69,12 @@ index ba32d58c33c65b1384baa7616da64f7a4a1f0d1d..30815c8970b1f1c88a3c7bb5fd36efd9
      private static int fetchDistanceFromSiteApi(final int jenkinsBuild) {
          try {
 -            final URL buildsUrl = URI.create("https://fill.papermc.io/v3/projects/paper/versions/" + PaperVersionFetcher.BUILD_INFO.minecraftVersionId() + "/builds").toURL();
-+            final URL buildsUrl = URI.create("https://fill.papermc.io/v3/projects/folia/versions/" + PaperVersionFetcher.BUILD_INFO.minecraftVersionId() + "/builds").toURL(); // Folia
++            final URL buildsUrl = URI.create("https://" + PaperVersionFetcher.BUILD_INFO.minecraftVersionId() + "/builds").toURL(); // Folia  //Isoluminol
              final HttpURLConnection connection = (HttpURLConnection) buildsUrl.openConnection();
              connection.setConnectTimeout(5000);
              connection.setReadTimeout(5000);
 diff --git a/src/main/java/io/papermc/paper/ServerBuildInfoImpl.java b/src/main/java/io/papermc/paper/ServerBuildInfoImpl.java
-index 74ffdc823e66fc5ec027c4b7c462382bcbfe2be2..10a0be7a4db1a51579d113d279af7a9effe7f438 100644
+index 74ffdc823e66fc5ec027c4b7c462382bcbfe2be2..6b7452b3f054d57c9d45f3ffc747cc4138bdf430 100644
 --- a/src/main/java/io/papermc/paper/ServerBuildInfoImpl.java
 +++ b/src/main/java/io/papermc/paper/ServerBuildInfoImpl.java
 @@ -42,9 +42,9 @@ public record ServerBuildInfoImpl(
@@ -82,10 +82,10 @@ index 74ffdc823e66fc5ec027c4b7c462382bcbfe2be2..10a0be7a4db1a51579d113d279af7a9e
              getManifestAttribute(manifest, ATTRIBUTE_BRAND_ID)
                  .map(Key::key)
 -                .orElse(BRAND_PAPER_ID),
-+                .orElse(Key.key("papermc", "folia")), // Folia
++                .orElse(Key.key("isoluminolmc", "isoluminol")), // Folia  //Isoluminol
              getManifestAttribute(manifest, ATTRIBUTE_BRAND_NAME)
 -                .orElse(BRAND_PAPER_NAME),
-+                .orElse("Folia"), // Folia
++                .orElse("Isoluminol"), // Folia  //Isoluminol
              SharedConstants.getCurrentVersion().id(),
              SharedConstants.getCurrentVersion().name(),
              getManifestAttribute(manifest, ATTRIBUTE_BUILD_NUMBER)
