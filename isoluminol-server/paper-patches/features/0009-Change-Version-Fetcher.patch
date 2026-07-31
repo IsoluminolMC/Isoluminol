@@ -1,0 +1,71 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: SLIGHTLKE <slightlke@outlook.com>
+Date: Wed, 29 Jul 2026 20:14:08 +0800
+Subject: [PATCH] Change Version Fetcher
+
+
+diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
+index ba32d58c33c65b1384baa7616da64f7a4a1f0d1d..e8dc6934eb7ad300663a5358f0b38045be6396a1 100644
+--- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
++++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
+@@ -40,10 +40,12 @@ public class PaperVersionFetcher implements VersionFetcher {
+     private static final ComponentLogger COMPONENT_LOGGER = ComponentLogger.logger(LogManager.getRootLogger().getName());
+     private static final int DISTANCE_ERROR = -1;
+     private static final int DISTANCE_UNKNOWN = -2;
+-    private static final String DOWNLOAD_PAGE = "https://papermc.io/downloads/paper";
+-    private static final String REPOSITORY = "PaperMC/Paper";
++    // Isoluminol start
++    private static final String DOWNLOAD_PAGE = "https://github.com/SLIGHTLKE/Isoluminol";
++    private static final String REPOSITORY = "IsoluminolMC/Isoluminol";
++    // Isoluminol end
+     private static final ServerBuildInfo BUILD_INFO = ServerBuildInfo.buildInfo();
+-    private static final String USER_AGENT = BUILD_INFO.brandName() + "/" + BUILD_INFO.asString(VERSION_SIMPLE) + " (https://papermc.io)";
++    private static final String USER_AGENT = BUILD_INFO.brandName() + "/" + BUILD_INFO.asString(VERSION_SIMPLE) + " (Isoluminol)"; // Isoluminol
+     private static final Gson GSON = new Gson();
+ 
+     @Override
+@@ -72,7 +74,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+             COMPONENT_LOGGER.warn(text("*** You are running a development version without access to version information ***"));
+         } else {
+             final Optional<MinecraftVersionFetcher> apiResult = fetchMinecraftVersionList();
+-            if (buildNumber.isPresent()) {
++            if (buildNumber.isPresent() && false) { // Isoluminol
+                 distance = fetchDistanceFromSiteApi(buildNumber.getAsInt());
+             } else {
+                 final Optional<String> gitBranch = BUILD_INFO.gitBranch();
+@@ -111,7 +113,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+         int distance = DISTANCE_ERROR;
+ 
+         final OptionalInt buildNumber = PaperVersionFetcher.BUILD_INFO.buildNumber();
+-        if (buildNumber.isPresent()) {
++        if (buildNumber.isPresent() && false) { // Isoluminol
+             distance = fetchDistanceFromSiteApi(buildNumber.getAsInt());
+         } else {
+             final Optional<String> gitBranch = PaperVersionFetcher.BUILD_INFO.gitBranch();
+@@ -140,7 +142,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+         final String currentVersion = PaperVersionFetcher.BUILD_INFO.minecraftVersionId();
+ 
+         try {
+-            final URL versionsUrl = URI.create("https://fill.papermc.io/v3/projects/paper").toURL();
++            final URL versionsUrl = URI.create("https://").toURL(); // Isoluminol
+             final HttpURLConnection connection = (HttpURLConnection) versionsUrl.openConnection();
+             connection.setConnectTimeout(5000);
+             connection.setReadTimeout(5000);
+@@ -162,7 +164,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+                     }
+ 
+                     try {
+-                        final URL buildsUrl = URI.create("https://fill.papermc.io/v3/projects/paper/versions/" + latestVersion + "/builds/latest").toURL();
++                        final URL buildsUrl = URI.create("https://" + latestVersion + "/builds/latest").toURL(); // Isoluminol
+                         final HttpURLConnection connection2 = (HttpURLConnection) buildsUrl.openConnection();
+                         connection2.setConnectTimeout(5000);
+                         connection2.setReadTimeout(5000);
+@@ -200,7 +202,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+ 
+     private static int fetchDistanceFromSiteApi(final int jenkinsBuild) {
+         try {
+-            final URL buildsUrl = URI.create("https://fill.papermc.io/v3/projects/paper/versions/" + PaperVersionFetcher.BUILD_INFO.minecraftVersionId() + "/builds").toURL();
++            final URL buildsUrl = URI.create("https://" + PaperVersionFetcher.BUILD_INFO.minecraftVersionId() + "/builds").toURL(); // Isoluminol
+             final HttpURLConnection connection = (HttpURLConnection) buildsUrl.openConnection();
+             connection.setConnectTimeout(5000);
+             connection.setReadTimeout(5000);
