@@ -1,7 +1,7 @@
 <img src="" alt="Isoluminol">
 <div align="center">
 
-[![Download](https://img.shields.io/badge/releases-blue?label=download&style=for-the-badge&colorA=19201a&colorB=d73a49)](https://github.com/SLIGHTLKE/Isoluminol/releases)⠀
+[![Download](https://img.shields.io/badge/releases-blue?label=download&style=for-the-badge&colorA=19201a&colorB=d73a49)](https://github.com/IsoluminolMC/Isoluminol/releases)⠀
 
 **Isoluminol** is dedicated to optimizing runtime performance and improving server stability.
 
@@ -16,8 +16,8 @@ Not available
 
 ## Build Process
 
-```
-git clone https://github.com/SLIGHTLKE/Isoluminol.git
+```bash
+git clone https://github.com/IsoluminolMC/Isoluminol.git
 cd Isoluminol
 ./gradlew applyAllPatches
 ./gradlew createPaperclipJar
