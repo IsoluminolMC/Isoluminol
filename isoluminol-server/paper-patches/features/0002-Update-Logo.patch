@@ -1,6 +1,6 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: SLIGHTLKE <slightlke@outlook.com>
-From: Sat, 1 Aug 2026 10:00:01 +0800
+Date: Sat, 1 Aug 2026 10:00:01 +0800
 Subject: [PATCH] Update Logo
 
 diff --git a/src/main/resources/logo.png b/src/main/resources/logo.png
