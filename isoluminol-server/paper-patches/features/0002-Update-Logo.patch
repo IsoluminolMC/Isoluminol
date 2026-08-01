@@ -1,9 +1,9 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: SLIGHTLKE <slightlke@outlook.com>
-From: Sat, 1 Aug 2026 09:49:01 +0800
+From: Sat, 1 Aug 2026 10:00:01 +0800
 Subject: [PATCH] Update Logo
 
-diff --git a/isoluminol-server/src/main/resources/logo.png b/isoluminol-server/src/main/resources/logo.png
+diff --git a/src/main/resources/logo.png b/src/main/resources/logo.png
 index 8b924977b7886df9ab8790b1e4ff9b1c04a2af45..2bcacad1c4bba74a5a3bd5f310c48a9feb7d6787 100644
 GIT binary patch
 literal 1844
