@@ -1,6 +1,6 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: SLIGHTLKE <slightlke@outlook.com>
-Date: Sat, 18 Apr 2026 09:04:34 +0800
+Date: Sat, 1 Aug 2026 09:40:01 +0800
 Subject: [PATCH] Leaf Skip event if no listeners
 
 As part of: Leaf (https://github.com/Winds-Studio/Leaf/blob/ver/26.2/leaf-server/paper-patches/features/0032-Skip-event-if-no-listeners.patch)
