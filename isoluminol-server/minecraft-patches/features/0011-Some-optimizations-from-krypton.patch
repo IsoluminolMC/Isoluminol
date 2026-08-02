@@ -3,18 +3,16 @@ From: SLIGHTLKE <slightlke@outlook.com>
 Date: Sat, 1 Aug 2026 18:31:06 +0800
 Subject: [PATCH] Some optimizations from krypton
 
+Directly ported from Luminol. To comply with patch formatting standards, the From header has been modified.
+The original source can be found in the Luminol archive:
+
+https://github.com/LuminolCustomArchive/Luminol/blob/dev/26.2/luminol-server/minecraft-patches/features/0082-Some-optimizations-from-krypton.patch
+
 A part of krypton's mixin:
 
 https://github.com/astei/krypton/blob/master/src/main/java/me/steinborn/krypton/mixin/shared/network/microopt/StringEncodingMixin.java and https://github.com/astei/krypton/blob/master/src/main/java/me/steinborn/krypton/mixin/shared/network/microopt/VarIntsMixin.java
 
 Original project license: https://github.com/astei/krypton/blob/master/LICENSE
-
----
-
-Directly ported from Luminol. To comply with patch formatting standards, the From header has been modified.
-The original source can be found in the Luminol archive:
-
-https://github.com/LuminolCustomArchive/Luminol/blob/dev/26.2/luminol-server/minecraft-patches/features/0082-Some-optimizations-from-krypton.patch
 
 diff --git a/net/minecraft/network/Utf8String.java b/net/minecraft/network/Utf8String.java
 index 8b778744a5f01943976f180ad340a1cbce7db506..525829372c6d5e82db1a65cb4999afc4314522c2 100644
