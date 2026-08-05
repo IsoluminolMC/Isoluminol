@@ -10,10 +10,6 @@
 > [!CAUTION]
 > **Early development.** Expect breaking changes, unstable behavior, and potential world corruption. Use at your own risk and **do not deploy to production**.
 
-## Contact
-
-QQ Group: 1093354314
-
 ## Build Process
 
 ```bash
@@ -25,5 +21,10 @@ cd Isoluminol
 
 You can find *.jar in ./isoluminol-server/build/libs/
 
+## Contact
+
+QQ Group: `1093354314`
+
 ## License
 See [LICENSE.md](LICENSE.md). And licenses are documented in the `licenses` directory.
+
