@@ -18,7 +18,7 @@
 
      // checkstyle
 -    checkstyle(project(":paper-checkstyle"))
-+    checkstyle(project(":folia-checkstyle"))
++    checkstyle(project(":isoluminol-checkstyle"))
  }
  
 -val generatedDir: java.nio.file.Path = layout.projectDirectory.dir("src/generated/java").asFile.toPath()
