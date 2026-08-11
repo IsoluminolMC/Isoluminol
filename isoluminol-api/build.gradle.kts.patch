@@ -15,7 +15,7 @@
  val annotationsVersion = "26.0.2"
 @@ -105,10 +_,10 @@
      testRuntimeOnly("org.junit.platform:junit-platform-launcher:6.0.3")
-
+ 
      // checkstyle
 -    checkstyle(project(":paper-checkstyle"))
 +    checkstyle(project(":isoluminol-checkstyle"))
