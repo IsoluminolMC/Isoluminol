@@ -6,11 +6,12 @@ build
 
 /run
 
-/folia-server/build.gradle.kts
-/folia-server/src/minecraft
+/isoluminol-server/build.gradle.kts
+/isoluminol-server/src/minecraft
 /paper-server
-/folia-api/build.gradle.kts
+/isoluminol-api/build.gradle.kts
 /paper-api
 /paper-api-generator
+/isoluminol-checkstyle/build.gradle.kts
 
 .idea/

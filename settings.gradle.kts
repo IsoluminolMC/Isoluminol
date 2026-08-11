@@ -14,6 +14,7 @@ rootProject.name = "isoluminol"
 
 include("isoluminol-api")
 include("isoluminol-server")
+include("isoluminol-checkstyle")
 
 gradle.lifecycle.beforeProject {
     val mcVersion = providers.gradleProperty("mcVersion").get().trim()
