@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Spottedleaf <Spottedleaf@users.noreply.github.com>
-Date: Fri, 20 Dec 2024 12:41:13 -0800
-Subject: [PATCH] Use Folia logo
+From: SLIGHTLKE <slightlke@outlook.com>
+Date: Sat, 12 Sep 2026 16:18:49 +0800
+Subject: [PATCH] Use Isoluminol logo
 
 
 diff --git a/net/minecraft/server/gui/MinecraftServerGui.java b/net/minecraft/server/gui/MinecraftServerGui.java
