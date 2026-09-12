@@ -5,7 +5,7 @@ Subject: [PATCH] Use Isoluminol logo
 
 
 diff --git a/net/minecraft/server/gui/MinecraftServerGui.java b/net/minecraft/server/gui/MinecraftServerGui.java
-index 023cca49c6dd0f2961cf30f02c7cd74601f73f8b..79518cbca7760f710130509d93d27fb017d67159 100644
+index 023cca49c6dd0f2961cf30f02c7cd74601f73f8b..48ea8bad0b516bb2b1b4e16c612fe9ff6746fbd1 100644
 --- a/net/minecraft/server/gui/MinecraftServerGui.java
 +++ b/net/minecraft/server/gui/MinecraftServerGui.java
 @@ -58,7 +58,7 @@ public class MinecraftServerGui extends JComponent {
