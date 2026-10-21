@@ -1,15 +1,69 @@
 package me.slightlke.isoluminol.config;
 
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
+import org.spongepowered.configurate.objectmapping.meta.Comment;
+import org.spongepowered.configurate.objectmapping.meta.Setting;
 
 @ConfigSerializable
-public class IsoluminolConfig {
+public final class IsoluminolConfig {
 
-    public Isoluminol isoluminol = new Isoluminol();
+    @Setting("optimizations")
+    private Optimizations optimizations = new Optimizations();
+
+    @Setting("protocols")
+    private Protocols protocols = new Protocols();
+
+    public Optimizations optimizations() {
+        return this.optimizations;
+    }
+
+    public Protocols protocols() {
+        return this.protocols;
+    }
 
     @ConfigSerializable
-    public static class Isoluminol {
-        public String tip_en = "No configurable options yet. This is a placeholder and does not need to be modified.";
-        public String tip_zh = "暂时没有设置可配置项目，此为占位符，不必修改";
+    public static final class Optimizations {
+
+        @Setting("simd")
+        private Simd simd = new Simd();
+
+        public Simd simd() {
+            return this.simd;
+        }
+    }
+
+    @ConfigSerializable
+    public static final class Protocols {
+
+        @Setting("appleskin")
+        private AppleSkin appleskin = new AppleSkin();
+
+        public AppleSkin appleskin() {
+            return this.appleskin;
+        }
+    }
+
+    @ConfigSerializable
+    public static final class Simd {
+
+        @Setting("enabled")
+        @Comment("Enable SIMD acceleration for map color conversion. Requires --add-modules=jdk.incubator.vector.")
+        private boolean enabled = true;
+
+        public boolean enabled() {
+            return this.enabled;
+        }
+    }
+
+    @ConfigSerializable
+    public static final class AppleSkin {
+
+        @Setting("enabled")
+        @Comment("Sync saturation and exhaustion to clients for AppleSkin.")
+        private boolean enabled = true;
+
+        public boolean enabled() {
+            return this.enabled;
+        }
     }
 }
