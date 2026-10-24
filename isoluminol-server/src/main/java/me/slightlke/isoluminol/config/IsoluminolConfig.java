@@ -62,8 +62,16 @@ public final class IsoluminolConfig {
         @Comment("Sync saturation and exhaustion to clients for AppleSkin.")
         private boolean enabled = true;
 
+        @Setting("sync-tick-interval")
+        @Comment("How often to check and sync saturation/exhaustion, in ticks.")
+        private int syncTickInterval = 20;
+
         public boolean enabled() {
             return this.enabled;
+        }
+
+        public int syncTickInterval() {
+            return this.syncTickInterval;
         }
     }
 }

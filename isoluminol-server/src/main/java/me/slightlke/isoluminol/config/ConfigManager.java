@@ -36,7 +36,7 @@ public final class ConfigManager {
             SIMDInitializer.init();
         }
         if (loaded.protocols().appleskin().enabled()) {
-            AppleSkinSync.init();
+            AppleSkinSync.init(loaded.protocols().appleskin().syncTickInterval());
         }
     }
 
