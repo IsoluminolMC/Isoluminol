@@ -25,6 +25,10 @@ You can find *.jar in ./isoluminol-server/build/libs/
 
 QQ Group: `1093354314`
 
+## bStats
+[![bStats Graph Data](https://bstats.org/signatures/server-implementation/Isoluminol.svg)](https://bstats.org/plugin/server-implementation/Isoluminol)
+
+
 ## License
 See [LICENSE.md](LICENSE.md). And licenses are documented in the `licenses` directory.
 
