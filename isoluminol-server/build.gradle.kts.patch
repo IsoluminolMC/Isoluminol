@@ -20,7 +20,7 @@
 +
 +
      updatingMinecraft {
-         // oldPaperCommit = "e5fe71723e2ffde7cc9fafc085ac3bb73e63175e"
+         //oldPaperCommit = "e5fe71723e2ffde7cc9fafc085ac3bb73e63175e"
      }
 @@ -86,7 +_,19 @@
      }
@@ -43,7 +43,7 @@
  configurations.named(log4jPlugins.compileClasspathConfigurationName) {
      extendsFrom(configurations.compileClasspath.get())
  }
-@@ -109,11 +_,15 @@
+@@ -109,12 +_,15 @@
  }
  
  dependencies {
