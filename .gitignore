@@ -12,6 +12,7 @@ build
 /isoluminol-api/build.gradle.kts
 /paper-api
 /paper-api-generator
+/paper-checkstyle
 /isoluminol-checkstyle/build.gradle.kts
 
 .idea/
